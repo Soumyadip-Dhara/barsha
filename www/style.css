@@ -98,7 +98,7 @@ body{
     font-family: cursive;
 }
 
-.glow-on-hover{
+/* .glow-on-hover{
     width: 35px;
     height: 35px;
     border: none;
@@ -154,9 +154,79 @@ body{
     left: 0;
     top: 0;
     border-radius: 10px;
+} */
+.glow-on-hover {
+    width: 35px;
+    height: 35px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    border-radius: 10px;
+    padding: 0;
+    margin-left: 10px;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
-@keyframes glowing {
+.glow-on-hover:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: -2;
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000
+    );
+    background-size: 400%;
+    border-radius: 16px;
+    filter: blur(12px);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    animation: rainbow-glow 6s linear infinite;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #111;
+    border-radius: 10px;
+    z-index: -1;
+}
+@keyframes rainbow-glow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* @keyframes glowing {
     0%{
         background-position: 0 0;
     }
@@ -168,4 +238,4 @@ body{
         background-position: 0 0;
 
     }
-}
+} */
